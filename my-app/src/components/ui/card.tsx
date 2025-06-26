@@ -1,92 +1,29 @@
-import * as React from "react"
+import Image from "next/image";
 
-import { cn } from "@/lib/utils"
-
-function Card({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card"
-      className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
-        className
-      )}
-      {...props}
-    />
-  )
+interface CardProps {
+  imageSrc: string;
+  title: string;
+  subtitle?: string;
+  rating?: number;
+  badge?: React.ReactNode;
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+export default function Card({ imageSrc, title, subtitle, rating, badge }: CardProps) {
   return (
-    <div
-      data-slot="card-header"
-      className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-title"
-      className={cn("leading-none font-semibold", className)}
-      {...props}
-    />
-  )
-}
-
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-description"
-      className={cn("text-muted-foreground text-sm", className)}
-      {...props}
-    />
-  )
-}
-
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-action"
-      className={cn(
-        "col-start-2 row-span-2 row-start-1 self-start justify-self-end",
-        className
-      )}
-      {...props}
-    />
-  )
-}
-
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-content"
-      className={cn("px-6", className)}
-      {...props}
-    />
-  )
-}
-
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="card-footer"
-      className={cn("flex items-center px-6 [.border-t]:pt-6", className)}
-      {...props}
-    />
-  )
-}
-
-export {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardAction,
-  CardDescription,
-  CardContent,
+    <div className="w-64 flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md">
+      <div className="relative h-40">
+        <Image src={imageSrc} alt={title} fill className="object-cover" />
+        {badge && <div className="absolute top-2 left-2">{badge}</div>}
+      </div>
+      <div className="p-4">
+        <h3 className="font-semibold text-lg">{title}</h3>
+        {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
+        {rating !== undefined && (
+          <p className="mt-2 text-sm text-yellow-500">
+            {"★".repeat(Math.floor(rating))}{"☆".repeat(5 - Math.floor(rating))}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 }

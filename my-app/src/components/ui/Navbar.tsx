@@ -19,16 +19,15 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "Products", href: "/best-sellers" },
-    { label: "Contacts", href: "/gift-ideas" },
-    { label: "Today's Deals", href: "/deals" },
+    { label: "Products", href: "/Product" },
+    { label: "Reviews", href: "/reviews" },
+    { label: "Contacts", href: "/contact" },
   ];
 
   const accountLinks = [
     { label: "Profile", href: "/account/profile" },
     { label: "Orders", href: "/account/orders" },
-    { label: "Wishlist", href: "/account/wishlist" },
-    { label: "Settings", href: "/account/settings" },
+    { label: "Favourites", href: "/account/favourites" },
   ];
 
   return (
@@ -37,7 +36,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo + Links */}
           <div className="flex items-center space-x-8">
-            <span className="text-2xl font-bold">JB's Candy</span>
+            <span className="text-2xl font-bold">JB's Kitchen</span>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
