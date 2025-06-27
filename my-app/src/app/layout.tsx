@@ -1,7 +1,10 @@
+// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/ui/Navbar";
+import { CartProvider } from "@/context/Cartcontext";
+import { Toaster } from "react-hot-toast";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,9 +28,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Universal Navbar */}
-        <Navbar />
-        {children}
+        {/* Wrap in CartProvider so useCart() works everywhere */}
+        <CartProvider>
+          <Navbar />
+          <Toaster position="top-right" />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );
