@@ -9,23 +9,22 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Dianna Kimwealth",
+    name: "John Mak",
     role: "Rodo Construction",
-    imageSrc: "/images/testimonials/dianna.jpg",
+    imageSrc: "/images/King.jpg",
     quote:
-      "Mauris sodales tellus vel felis dapibus, sit amet porta nibh egestas. Sed dignissim tellus quis sapien sagittis cursus.",
-  },
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",},
   {
-    name: "John Wellberg",
+    name: "Oliver Wen",
     role: "Solid Iron Corp",
-    imageSrc: "/images/testimonials/john.jpg",
+    imageSrc: "/images/ruhaan.jpg",
     quote:
       "Mauris sodales tellus vel felis dapibus, sit amet porta nibh egestas. Sed dignissim tellus quis sapien sagittis cursus.",
   },
   {
-    name: "Sarah Rahman",
+    name: "Sarah Lee",
     role: "South Cotton Architecture",
-    imageSrc: "/images/testimonials/sarah.jpg",
+    imageSrc: "/images/asian.jpg",
     quote:
       "Mauris sodales tellus vel felis dapibus, sit amet porta nibh egestas. Sed dignissim tellus quis sapien sagittis cursus.",
   },
@@ -38,7 +37,7 @@ export default function Testimonials() {
         <p className="text-sm text-yellow-500 uppercase mb-2">Testimonials</p>
         <h2 className="text-3xl font-bold mb-4">What Clients Say</h2>
         <p className="text-gray-600 mb-12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Our clients love us! Here's what they have to say about our services.
         </p>
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t) => (
