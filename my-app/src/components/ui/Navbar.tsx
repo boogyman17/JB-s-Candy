@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Home",     href: "/" },
-    { label: "Products", href: "/products" },      // <-- consistent lowercase
+    { label: "Products", href: "/Product" },      // <-- consistent lowercase
     { label: "Reviews",  href: "/reviews" },
     { label: "Contacts", href: "/contact" },
   ];
