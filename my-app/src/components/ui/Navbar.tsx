@@ -4,8 +4,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import SearchBar from "./Searchbar";
-import { useCart } from "@/context/Cartcontext";
+import SearchBar from "./Searchbar";                  // <-- ensure correct casing
+import { useCart } from "@/context/Cartcontext";      // <-- fix context path
 import { useAuth } from "@/context/AuthContext";
 import { supabase } from "@/lib/supabaseClient";
 import toast from "react-hot-toast";
@@ -18,15 +18,15 @@ export default function Navbar() {
   const [accountOpen, setAccountOpen] = useState(false);
 
   const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Products", href: "/Product" },
-    { label: "Reviews", href: "/reviews" },
+    { label: "Home",     href: "/" },
+    { label: "Products", href: "/products" },      // <-- consistent lowercase
+    { label: "Reviews",  href: "/reviews" },
     { label: "Contacts", href: "/contact" },
   ];
 
   const accountLinks = [
     { label: "Profile", href: "/account/profile" },
-    { label: "Orders", href: "/orders" },
+    { label: "Orders",  href: "/orders" },
   ];
 
   async function handleCheckout() {
@@ -50,10 +50,11 @@ export default function Navbar() {
     <nav className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
+
           {/* Logo + Links */}
           <div className="flex items-center space-x-8">
             <span className="text-2xl font-bold">JB's Kitchen</span>
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -64,12 +65,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* SearchBar */}
+          {/* Search Bar */}
           <div className="flex-1 px-8">
             <SearchBar />
           </div>
 
-          {/* Auth-dependent Links */}
+          {/* Right-side: Auth / Cart / Account */}
           <div className="flex items-center space-x-4">
             {!user ? (
               <>
@@ -82,7 +83,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                {/* Cart */}
+                {/* Cart Dropdown */}
                 <div className="relative">
                   <button
                     onClick={() => setCartOpen(!cartOpen)}
@@ -94,16 +95,11 @@ export default function Navbar() {
                     <div className="absolute right-0 mt-2 w-64 bg-gray-800 rounded-lg shadow-lg p-4 z-10">
                       {cartItems.length > 0 ? (
                         <ul className="space-y-2 text-white">
-                          {cartItems.map((item) => (
-                            <li
-                              key={item.name}
-                              className="flex justify-between"
-                            >
+                          {cartItems.map(item => (
+                            <li key={item.name} className="flex justify-between">
                               <div>
                                 <p className="font-medium">{item.name}</p>
-                                <p className="text-sm text-gray-400">
-                                  ${item.price}
-                                </p>
+                                <p className="text-sm text-gray-400">${item.price}</p>
                               </div>
                               <span className="text-sm">Qty: {item.qty}</span>
                             </li>
@@ -122,7 +118,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                {/* Account */}
+                {/* Account Dropdown */}
                 <div className="relative">
                   <button
                     onClick={() => setAccountOpen(!accountOpen)}
@@ -133,7 +129,7 @@ export default function Navbar() {
                   {accountOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg p-4 z-10 text-white">
                       <ul className="space-y-2">
-                        {accountLinks.map((item) => (
+                        {accountLinks.map(item => (
                           <Link
                             key={item.href}
                             href={item.href}
@@ -157,6 +153,7 @@ export default function Navbar() {
               </>
             )}
           </div>
+
         </div>
       </div>
     </nav>
