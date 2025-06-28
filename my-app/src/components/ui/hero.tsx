@@ -12,7 +12,7 @@ export default function Hero() {
         <p className="mt-4 text-gray-600 max-w-lg">
           Indonesian Food right to your door!
         </p>
-        <Link href="/order" className="inline-block mt-6 px-6 py-3 border border-red-500 text-red-500 rounded hover:bg-red-50">
+        <Link href="/Product" className="inline-block mt-6 px-6 py-3 border border-red-500 text-red-500 rounded hover:bg-red-50">
           Order Now
         </Link>
       </div>
