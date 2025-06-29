@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex items-center justify-center md:justify-start">
           <Image
             src="/images/logo.png"         // <-- replace with your logo path
-            alt="JB's Kitchen Logo"
+            alt="JB&apos;s Kitchen Logo"
             width={300}
             height={300}
             priority
@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-semibold mb-4 uppercase text-sm">About JB's Kitchen</h3>
+          <h3 className="font-semibold mb-4 uppercase text-sm">About JB&apos;s Kitchen</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link href="/contact" className="hover:underline">

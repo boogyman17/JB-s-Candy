@@ -7,7 +7,7 @@ export default function Hero() {
       <div>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Order from <br/>
-          JB's Kitchen <span className="text-green-500">Now Online</span>
+          JB&apos;s Kitchen <span className="text-green-500">Now Online</span>
         </h1>
         <p className="mt-4 text-gray-600 max-w-lg">
           Indonesian Food right to your door!

@@ -27,6 +27,9 @@ interface SalePoint {
   name: string;
   sales: number;
 }
+interface Order {
+  items: Array<{ name: string; qty: number }>;
+}
 
 export default function SalesBarChart() {
   const [salesData, setSalesData] = useState<SalePoint[]>([]);
@@ -38,8 +41,8 @@ export default function SalesBarChart() {
       .select("items")
       .then(({ data }) => {
         const tally: Record<string, number> = {};
-        data?.forEach((order: any) =>
-          order.items.forEach((it: any) => {
+        (data as Order[] | null)?.forEach((order) =>
+          order.items.forEach((it) => {
             tally[it.name] = (tally[it.name] || 0) + it.qty;
           })
         );
@@ -57,10 +60,7 @@ export default function SalesBarChart() {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "orders" },
         (payload) => {
-          const newItems = (payload.new as any).items as Array<{
-            name: string;
-            qty: number;
-          }>;
+          const newItems = (payload.new as Order).items;
           setSalesData((prev) => {
             const map = Object.fromEntries(prev.map((d) => [d.name, d.sales]));
             newItems.forEach((it) => {

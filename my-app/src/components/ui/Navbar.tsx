@@ -53,7 +53,7 @@ export default function Navbar() {
 
           {/* Logo + Links */}
           <div className="flex items-center space-x-8">
-            <span className="text-2xl font-bold">JB's Kitchen</span>
+            <span className="text-2xl font-bold">JB&apos;s Kitchen</span>
             {navLinks.map(link => (
               <Link
                 key={link.href}

@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { MagnifyingGlassIcon, HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -12,14 +11,13 @@ export default function SearchBar() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const term = query.trim();
-    // if blank, just go to /products
     router.push(term ? `/Product?search=${encodeURIComponent(term)}` : `/Product`);
 
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex items-center space-x-4">
-      {/* Search Input */}
+      
       <div className="relative flex-1">
         <input
           value={query}

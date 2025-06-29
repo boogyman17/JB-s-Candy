@@ -8,7 +8,6 @@ export default function DashboardPage() {
       {/* Page Title */}
       <h1 className="text-2xl font-semibold">Dashboard</h1>
 
-      {/* Summary Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="bg-white p-6 rounded-lg shadow">
           <p className="text-sm text-gray-500">Total Page Views</p>

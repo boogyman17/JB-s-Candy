@@ -37,7 +37,7 @@ export default function Testimonials() {
         <p className="text-sm text-yellow-500 uppercase mb-2">Testimonials</p>
         <h2 className="text-3xl font-bold mb-4">What Clients Say</h2>
         <p className="text-gray-600 mb-12">
-          Our clients love us! Here's what they have to say about our services.
+          Our clients love us! Here&apos;s what they have to say about our services.
         </p>
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t) => (
