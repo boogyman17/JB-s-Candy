@@ -1,40 +1,66 @@
-import { AppSidebar } from "@/components/app-sidebar"
-import { ChartAreaInteractive } from "@/components/chart-area-interactive"
-import { DataTable } from "@/components/data-table"
-import { SectionCards } from "@/components/section-cards"
-import { SiteHeader } from "@/components/site-header"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
+// src/app/dashboard/page.tsx
+import SalesBarChart from "@/components/ui/SalesBarChart";
+import AddProductForm from "@/components/ui/AddProductForm";
 
-import data from "./data.json"
-
-export default function Page() {
+export default function DashboardPage() {
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <AppSidebar variant="inset" />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
-              <SectionCards />
-              <div className="px-4 lg:px-6">
-                <ChartAreaInteractive />
-              </div>
-              <DataTable data={data} />
-            </div>
-          </div>
+    <main className="p-6 space-y-8 bg-gray-50 min-h-screen">
+      {/* Page Title */}
+      <h1 className="text-2xl font-semibold">Dashboard</h1>
+
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-white p-6 rounded-lg shadow">
+          <p className="text-sm text-gray-500">Total Page Views</p>
+          <p className="mt-2 text-3xl font-bold">442,236</p>
+          <span className="inline-flex items-center text-green-600 text-sm">
+            ↑ 59.3%
+          </span>
+          <p className="mt-1 text-gray-500 text-sm">
+            You made an extra 35,000 this year
+          </p>
         </div>
-      </SidebarInset>
-    </SidebarProvider>
-  )
+        <div className="bg-white p-6 rounded-lg shadow">
+          <p className="text-sm text-gray-500">Total Users</p>
+          <p className="mt-2 text-3xl font-bold">78,250</p>
+          <span className="inline-flex items-center text-green-600 text-sm">
+            ↑ 70.5%
+          </span>
+          <p className="mt-1 text-gray-500 text-sm">
+            You made an extra 8,900 this year
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow">
+          <p className="text-sm text-gray-500">Total Orders</p>
+          <p className="mt-2 text-3xl font-bold">18,800</p>
+          <span className="inline-flex items-center text-yellow-500 text-sm">
+            ↘ 27.4%
+          </span>
+          <p className="mt-1 text-gray-500 text-sm">
+            You made an extra 1,943 this year
+          </p>
+        </div>
+        <div className="bg-white p-6 rounded-lg shadow">
+          <p className="text-sm text-gray-500">Total Sales</p>
+          <p className="mt-2 text-3xl font-bold">$35,078</p>
+          <span className="inline-flex items-center text-yellow-500 text-sm">
+            ↘ 12.1%
+          </span>
+          <p className="mt-1 text-gray-500 text-sm">
+            You made an extra $20,395 this year
+          </p>
+        </div>
+      </div>
+
+      {/* Live‐Updating Horizontal Bar Chart */}
+      <section className="bg-white p-6 rounded-lg shadow">
+        <SalesBarChart />
+      </section>
+
+      {/* Add New Product Form */}
+      <section className="bg-white p-6 rounded-lg shadow">
+        <AddProductForm />
+      </section>
+    </main>
+  );
 }

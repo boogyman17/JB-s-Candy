@@ -4,14 +4,14 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 
-interface CardProps {
+export interface CardProps {
   imageSrc: string;
   title: string;
   subtitle?: string;
   rating?: number;
-  badge?: React.ReactNode;
-  onAddToCart?: () => void;        // ← new
-  addButtonLabel?: string;         // ← optional label override
+  badge?: ReactNode;
+  onAddToCart?: () => void;       // ← purchase callback
+  addButtonLabel?: string;
 }
 
 export default function Card({
@@ -34,11 +34,11 @@ export default function Card({
         {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
         {rating !== undefined && (
           <p className="mt-2 text-sm text-yellow-500">
-            {"★".repeat(Math.floor(rating))}{"☆".repeat(5 - Math.floor(rating))}
+            {"★".repeat(Math.floor(rating))}
+            {"☆".repeat(5 - Math.floor(rating))}
           </p>
         )}
       </div>
-
       {onAddToCart && (
         <div className="p-4 border-t border-gray-200">
           <button
