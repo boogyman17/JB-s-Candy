@@ -13,7 +13,8 @@ export default function SearchBar() {
     e.preventDefault();
     const term = query.trim();
     // if blank, just go to /products
-    router.push(term ? `/products?search=${encodeURIComponent(term)}` : `/products`);
+    router.push(term ? `/Product?search=${encodeURIComponent(term)}` : `/Product`);
+
   }
 
   return (
@@ -31,16 +32,6 @@ export default function SearchBar() {
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-500 hover:text-gray-700" />
         </button>
       </div>
-
-      {/* Wishlist */}
-      <Link href="/wishlist" className="p-2 rounded hover:bg-gray-100">
-        <HeartIcon className="w-6 h-6 text-gray-600 hover:text-gray-800" />
-      </Link>
-
-      {/* Cart */}
-      <Link href="/cart" className="p-2 rounded hover:bg-gray-100">
-        <ShoppingCartIcon className="w-6 h-6 text-gray-600 hover:text-gray-800" />
-      </Link>
     </form>
   );
 }

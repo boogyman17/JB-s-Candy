@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import SearchBar from "./Searchbar";                  // <-- ensure correct casing
+import SearchBar from "../SearchBar";                  // <-- ensure correct casing
 import { useCart } from "@/context/Cartcontext";      // <-- fix context path
 import { useAuth } from "@/context/AuthContext";
 import { supabase } from "@/lib/supabaseClient";
