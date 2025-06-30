@@ -18,8 +18,8 @@ export default function OrdersPage() {
   useEffect(() => {
     if (!user) return;
     supabase
-      .from<Order>("orders")
-      .select("*")
+      .from("orders")
+      .select<Order>("*")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {

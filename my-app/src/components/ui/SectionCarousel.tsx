@@ -1,4 +1,3 @@
-// src/components/ui/SectionCarousel.tsx
 "use client";
 
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
