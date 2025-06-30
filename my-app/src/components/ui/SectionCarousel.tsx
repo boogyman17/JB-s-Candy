@@ -3,6 +3,7 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Card from "./product-card";
 import { useCart } from "@/context/Cartcontext";
+import toast from "react-hot-toast";
 
 interface SectionCarouselProps {
   title: string;
@@ -33,13 +34,14 @@ export default function SectionCarousel({ title, items }: SectionCarouselProps) 
             title={it.title}
             subtitle={it.subtitle}
             rating={it.rating}
-            onAddToCart={() =>
+            onAddToCart={() => {
               addToCart({
                 name: it.title,
                 price: parseFloat((it.rating || 0).toFixed(2)), // adjust price source
                 imageSrc: it.imageSrc,
-              })
-            }
+              });
+              toast.success(`${it.title} added to cart!`);
+            }}
           />
         ))}
       </div>
