@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Card from "./card";
+import Card from "./product-card";
 import { useCart } from "@/context/Cartcontext";
 
 interface SectionCarouselProps {

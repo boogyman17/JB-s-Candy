@@ -2,7 +2,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Card from "@/components/ui/card";
+import Card from "@/components/ui/product-card";
 import { useCart } from "@/context/Cartcontext";
 import toast from "react-hot-toast";
 import { products } from "@/data/product";

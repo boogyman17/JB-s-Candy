@@ -1,54 +1,88 @@
-// src/components/ui/Card.tsx
-"use client";
+"use client"
 
-import Image from "next/image";
-import { ReactNode } from "react";
+import * as React from "react"
 
-export interface CardProps {
-  imageSrc: string;
-  title: string;
-  subtitle?: string;
-  rating?: number;
-  badge?: ReactNode;
-  onAddToCart?: () => void;       // ← purchase callback
-  addButtonLabel?: string;
-}
+import { cn } from "@/lib/utils"
 
-export default function Card({
-  imageSrc,
-  title,
-  subtitle,
-  rating,
-  badge,
-  onAddToCart,
-  addButtonLabel = "Add to cart",
-}: CardProps) {
-  return (
-    <div className="w-64 flex-shrink-0 bg-white rounded-xl overflow-hidden shadow-md flex flex-col">
-      <div className="relative h-40">
-        <Image src={imageSrc} alt={title} fill className="object-cover" />
-        {badge && <div className="absolute top-2 left-2">{badge}</div>}
-      </div>
-      <div className="p-4 flex-1">
-        <h3 className="font-semibold text-lg">{title}</h3>
-        {subtitle && <p className="text-sm text-gray-500 mt-1">{subtitle}</p>}
-        {rating !== undefined && (
-          <p className="mt-2 text-sm text-yellow-500">
-            {"★".repeat(Math.floor(rating))}
-            {"☆".repeat(5 - Math.floor(rating))}
-          </p>
-        )}
-      </div>
-      {onAddToCart && (
-        <div className="p-4 border-t border-gray-200">
-          <button
-            onClick={onAddToCart}
-            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded"
-          >
-            {addButtonLabel}
-          </button>
-        </div>
-      )}
-    </div>
-  );
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl border bg-card text-card-foreground shadow-sm",
+        className
+          {...props}
+    />
+  )
+)
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex flex-col space-y-1.5 p-6", className)}
+      {...props}
+    />
+  )
+)
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn("font-semibold leading-none tracking-tight", className)}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  )
+)
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("flex items-center p-6 pt-0", className)}
+      {...props}
+    />
+  )
+)
+CardFooter.displayName = "CardFooter"
+
+const CardAction = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("ml-auto flex gap-2", className)} {...props} />
+  )
+)
+CardAction.displayName = "CardAction"
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardAction,
 }

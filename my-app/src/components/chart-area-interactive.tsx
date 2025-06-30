@@ -2,11 +2,10 @@
 
 import * as React from "react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
   Card,
-  CardAction,
+  // CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -260,8 +259,8 @@ export function ChartAreaInteractive() {
               defaultIndex={isMobile ? -1 : 10}
               content={
                 <ChartTooltipContent
-                  labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString("en-US", {
+                  labelFormatter={(value: unknown) => {
+                    return new Date(value as string | number).toLocaleDateString("en-US", {
                       month: "short",
                       day: "numeric",
                     })
