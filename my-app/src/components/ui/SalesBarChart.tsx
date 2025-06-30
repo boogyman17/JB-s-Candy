@@ -12,7 +12,7 @@ import {
   ChartOptions,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 ChartJS.register(
   CategoryScale,
@@ -32,6 +32,8 @@ interface Order {
 }
 
 export default function SalesBarChart() {
+    const supabase = getSupabaseClient();
+
   const [salesData, setSalesData] = useState<SalePoint[]>([]);
 
   // Load initial totals

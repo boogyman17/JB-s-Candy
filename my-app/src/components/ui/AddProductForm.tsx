@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import {
   Form,
   FormField,
@@ -25,6 +25,7 @@ interface ProductForm {
 
 export default function AddProductForm() {
   const router = useRouter();
+  const supabase = getSupabaseClient();
   const [file, setFile] = useState<File | null>(null);
   const form = useForm<ProductForm>({
     defaultValues: {

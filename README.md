@@ -22,6 +22,13 @@ npm run dev
 
 The application will be available at `http://localhost:3000`.
 
+### Troubleshooting
+
+If `npm run build` fails with an error like `supabaseUrl is required`, make sure
+the environment variables `NEXT_PUBLIC_SUPABASE_URL` and
+`NEXT_PUBLIC_SUPABASE_ANON_KEY` are defined in `.env.local` (for local
+development) or in your Vercel project settings.
+
 ## Deployment on Vercel
 
 1. Push this repository to GitHub if it is not already there.

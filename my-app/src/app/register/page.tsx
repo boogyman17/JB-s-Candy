@@ -1,10 +1,9 @@
-// src/app/register/page.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import {
   Form,
   FormField,
@@ -24,6 +23,7 @@ interface RegisterForm {
 
 export default function RegisterPage() {
   const router = useRouter();
+  const supabase = getSupabaseClient();
   const form = useForm<RegisterForm>({
     defaultValues: { email: "", password: "", confirmPassword: "" },
   });

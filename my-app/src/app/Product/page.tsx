@@ -1,6 +1,7 @@
 // src/app/products/page.tsx
 import { Metadata } from "next";
 import ProductsList from "./Productlist";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Products – JB's Candy",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
-  return <ProductsList/>;
+return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ProductsList />
+    </Suspense>
+  );
 }

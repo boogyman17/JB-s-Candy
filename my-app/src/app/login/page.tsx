@@ -4,7 +4,7 @@
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import {
   Form, FormField, FormItem, FormLabel, FormControl, FormMessage
 } from "@/components/ui/form";
@@ -18,6 +18,7 @@ interface LoginForm {
 
 export default function LoginPage() {
   const router = useRouter();
+  const supabase = getSupabaseClient();
   const form = useForm<LoginForm>({ defaultValues: { email: "", password: "" } });
 
   async function onSubmit(data: LoginForm) {

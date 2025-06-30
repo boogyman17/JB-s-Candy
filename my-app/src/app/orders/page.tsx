@@ -1,9 +1,8 @@
-// src/app/orders/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 
 interface Order {
   id: string;
@@ -13,6 +12,7 @@ interface Order {
 
 export default function OrdersPage() {
   const { user } = useAuth();
+  const supabase = getSupabaseClient();
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {

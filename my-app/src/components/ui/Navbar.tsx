@@ -7,11 +7,12 @@ import Link from "next/link";
 import SearchBar from "../SearchBar";                  // <-- ensure correct casing
 import { useCart } from "@/context/Cartcontext";      // <-- fix context path
 import { useAuth } from "@/context/AuthContext";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseClient } from "@/lib/supabaseClient";
 import toast from "react-hot-toast";
 
 export default function Navbar() {
   const router = useRouter();
+  const supabase = getSupabaseClient();
   const { user } = useAuth();
   const { items: cartItems, clearCart } = useCart();
   const [cartOpen, setCartOpen] = useState(false);
