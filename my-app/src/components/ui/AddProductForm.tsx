@@ -42,7 +42,6 @@ export default function AddProductForm() {
       return;
     }
 
-    // 1) Upload image to Supabase Storage
     const fileName = `${Date.now()}_${file.name}`;
     const { error: uploadError } = await supabase
       .storage
@@ -54,7 +53,6 @@ export default function AddProductForm() {
       return;
     }
 
-    // 2) Get public URL for the uploaded file
     const { data: urlData } = supabase
       .storage
       .from("product-images")
@@ -62,7 +60,6 @@ export default function AddProductForm() {
 
     const imageUrl = urlData.publicUrl;
 
-    // 3) Insert product record with that URL
     const priceNum = parseFloat(data.price);
     const ratingNum = data.rating ? parseFloat(data.rating) : null;
 
@@ -145,7 +142,6 @@ export default function AddProductForm() {
             )}
           />
 
-          {/* NEW: File Upload */}
           <FormItem>
             <FormLabel>Product Image</FormLabel>
             <FormControl>

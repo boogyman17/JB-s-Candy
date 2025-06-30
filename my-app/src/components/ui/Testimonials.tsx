@@ -13,20 +13,20 @@ const testimonials: Testimonial[] = [
     role: "Rodo Construction",
     imageSrc: "/images/King.jpg",
     quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",},
+      "Very nice food yum yum, Live updating dashboard is very useful",},
   {
     name: "Oliver Wen",
     role: "Solid Iron Corp",
     imageSrc: "/images/ruhaan.jpg",
     quote:
-      "Mauris sodales tellus vel felis dapibus, sit amet porta nibh egestas. Sed dignissim tellus quis sapien sagittis cursus.",
+      "I love indomie, noodles are very delicious, great UI and UX Design",
   },
   {
     name: "Sarah Lee",
     role: "South Cotton Architecture",
     imageSrc: "/images/asian.jpg",
     quote:
-      "Mauris sodales tellus vel felis dapibus, sit amet porta nibh egestas. Sed dignissim tellus quis sapien sagittis cursus.",
+      "I love the nasi goreng, very nice customer service and website is easy to use",
   },
 ];
 

@@ -47,7 +47,6 @@ export default function RegisterPage() {
       return;
     }
 
-    // If email confirmations are off, supabase will return a session here
     if (signUpData.session) {
       toast.success("Welcome! You’re now signed in.");
       router.push("/");

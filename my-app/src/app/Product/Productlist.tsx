@@ -1,4 +1,3 @@
-// src/app/products/ProductsList.tsx
 "use client";
 
 import { useSearchParams } from "next/navigation";
@@ -11,7 +10,6 @@ export default function ProductsList() {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get("search")?.toLowerCase() ?? "";
 
-  // Filter products by the search term
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(searchTerm)
   );

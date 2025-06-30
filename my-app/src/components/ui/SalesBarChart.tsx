@@ -36,7 +36,6 @@ export default function SalesBarChart() {
 
   const [salesData, setSalesData] = useState<SalePoint[]>([]);
 
-  // Load initial totals
   useEffect(() => {
     supabase
       .from("orders")
@@ -55,7 +54,6 @@ export default function SalesBarChart() {
   }, [supabase]);
 
 
-  // Subscribe to new orders
   useEffect(() => {
     const channel = supabase
       .channel("orders-insert")
@@ -84,7 +82,6 @@ export default function SalesBarChart() {
   }, [supabase]);
 
 
-  // Prepare chart
   const maxSales = Math.max(0, ...salesData.map((d) => d.sales));
   const data = {
     labels: salesData.map((d) => d.name),

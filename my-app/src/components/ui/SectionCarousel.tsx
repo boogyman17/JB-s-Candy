@@ -37,7 +37,7 @@ export default function SectionCarousel({ title, items }: SectionCarouselProps) 
             onAddToCart={() => {
               addToCart({
                 name: it.title,
-                price: parseFloat((it.rating || 0).toFixed(2)), // adjust price source
+                price: parseFloat((it.rating || 0).toFixed(2)), 
                 imageSrc: it.imageSrc,
               });
               toast.success(`${it.title} added to cart!`);

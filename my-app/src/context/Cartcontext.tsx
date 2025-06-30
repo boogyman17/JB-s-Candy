@@ -1,4 +1,3 @@
-// src/context/CartContext.tsx
 "use client";
 
 import { createContext, useContext, useState, ReactNode } from "react";
@@ -14,7 +13,7 @@ interface CartContextType {
   items: CartItem[];
   addToCart: (item: Omit<CartItem, "qty">) => void;
   removeFromCart: (name: string) => void;
-  clearCart: () => void;    // ← added
+  clearCart: () => void;    
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);

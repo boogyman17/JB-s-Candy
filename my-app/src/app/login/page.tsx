@@ -1,4 +1,4 @@
-// src/app/login/page.tsx
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -31,7 +31,7 @@ export default function LoginPage() {
       toast.error(error.message);
     } else {
       toast.success("Logged in!");
-      router.push("/"); // or wherever
+      router.push("/"); 
     }
   }
 

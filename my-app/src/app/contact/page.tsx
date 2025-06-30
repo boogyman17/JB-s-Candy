@@ -1,4 +1,3 @@
-// src/app/contact/page.tsx
 import { 
   MapPinIcon, 
   PhoneIcon, 
@@ -8,7 +7,6 @@ import {
 export default function ContactPage() {
   return (
     <main className="bg-gray-800 text-white py-16 px-4 md:px-16 lg:px-32">
-      {/* Header */}
       <section className="max-w-3xl mx-auto text-center mb-12">
         <h1 className="text-4xl font-serif mb-4">Contact Us:</h1>
         <p className="text-gray-300">
@@ -17,9 +15,9 @@ export default function ContactPage() {
         </p>
       </section>
 
-      {/* Form + Map */}
+      
       <section className="flex flex-col md:flex-row gap-12">
-        {/* Contact Form */}
+        
         <form className="flex-1 space-y-6">
           <div>
             <label htmlFor="name" className="sr-only">Your full name</label>
@@ -65,7 +63,7 @@ export default function ContactPage() {
           </button>
         </form>
 
-        {/* Embedded Map */}
+        
         <div className="flex-1 h-80 rounded-lg overflow-hidden shadow-lg">
           <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3105.699581826717!2d-77.03777118464723!3d38.897676179570265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7bcdecbb1df%3A0xfbfbc1f0ce3b10ec!2sThe%20White%20House!5e0!3m2!1sen!2sus!4v1682842212345!5m2!1sen!2sus"
@@ -80,7 +78,7 @@ export default function ContactPage() {
 
       </section>
 
-      {/* Contact Details */}
+      
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center">
         <div className="space-y-4">
           <MapPinIcon className="w-12 h-12 mx-auto text-yellow-400" />

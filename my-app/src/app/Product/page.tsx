@@ -1,4 +1,4 @@
-// src/app/products/page.tsx
+
 import { Metadata } from "next";
 import ProductsList from "./Productlist";
 import { Suspense } from "react";

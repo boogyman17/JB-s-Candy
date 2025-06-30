@@ -1,4 +1,3 @@
-// src/components/ui/Card.tsx
 "use client";
 
 import Image from "next/image";
@@ -10,7 +9,7 @@ export interface CardProps {
   subtitle?: string;
   rating?: number;
   badge?: ReactNode;
-  onAddToCart?: () => void;       // ← purchase callback
+  onAddToCart?: () => void;       
   addButtonLabel?: string;
 }
 

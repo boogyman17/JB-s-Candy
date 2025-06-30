@@ -1,11 +1,10 @@
-// src/components/ui/Navbar.tsx
 "use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import SearchBar from "../SearchBar";                  // <-- ensure correct casing
-import { useCart } from "@/context/Cartcontext";      // <-- fix context path
+import SearchBar from "../SearchBar";                  
+import { useCart } from "@/context/Cartcontext";      
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 import toast from "react-hot-toast";
@@ -20,14 +19,14 @@ export default function Navbar() {
 
   const navLinks = [
     { label: "Home",     href: "/" },
-    { label: "Products", href: "/Product" },      // <-- consistent lowercase
+    { label: "Products", href: "/Product" },      
     { label: "Reviews",  href: "/reviews" },
     { label: "Contacts", href: "/contact" },
   ];
 
   const accountLinks = [
-    { label: "Profile", href: "/account/profile" },
     { label: "Orders",  href: "/orders" },
+    { label: "Dashboard", href: "/dashboard"}
   ];
 
   async function handleCheckout() {
@@ -52,7 +51,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
 
-          {/* Logo + Links */}
+          
           <div className="flex items-center space-x-8">
             <span className="text-2xl font-bold">JB&apos;s Kitchen</span>
             {navLinks.map(link => (
@@ -66,12 +65,12 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Search Bar */}
+          
           <div className="flex-1 px-8">
             <SearchBar />
           </div>
 
-          {/* Right-side: Auth / Cart / Account */}
+          
           <div className="flex items-center space-x-4">
             {!user ? (
               <>
@@ -84,7 +83,7 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                {/* Cart Dropdown */}
+                
                 <div className="relative">
                   <button
                     onClick={() => setCartOpen(!cartOpen)}
@@ -119,7 +118,7 @@ export default function Navbar() {
                   )}
                 </div>
 
-                {/* Account Dropdown */}
+                
                 <div className="relative">
                   <button
                     onClick={() => setAccountOpen(!accountOpen)}
