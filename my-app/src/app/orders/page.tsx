@@ -19,12 +19,12 @@ export default function OrdersPage() {
     if (!user) return;
     supabase
       .from("orders")
-      .select<Order>("*")
+      .select("*")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .then(({ data, error }) => {
         if (error) console.error(error);
-        else setOrders(data);
+        else setOrders(data as Order[]);
       });
   }, [user]);
 
