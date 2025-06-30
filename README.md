@@ -29,14 +29,6 @@ the environment variables `NEXT_PUBLIC_SUPABASE_URL` and
 `NEXT_PUBLIC_SUPABASE_ANON_KEY` are defined in `.env.local` (for local
 development) or in your Vercel project settings.
 
-## Deployment on Vercel
-
-1. Push this repository to GitHub if it is not already there.
-2. In the [Vercel dashboard](https://vercel.com/), create a new project from the repository.
-3. In the project settings, add the following Environment Variables:
-
-   - `NEXT_PUBLIC_SUPABASE_URL` – your Supabase project URL
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` – your Supabase anon key
 
    Make sure to add them for the **Production** environment (and for **Preview** or **Development** if needed).
 4. Trigger a deployment. Vercel will install dependencies and run `npm run build` automatically.
