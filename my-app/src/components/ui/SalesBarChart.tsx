@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,7 +32,7 @@ interface Order {
 }
 
 export default function SalesBarChart() {
-    const supabase = getSupabaseClient();
+  const supabase = useMemo(() => getSupabaseClient(), []);
 
   const [salesData, setSalesData] = useState<SalePoint[]>([]);
 
@@ -52,7 +52,8 @@ export default function SalesBarChart() {
           Object.entries(tally).map(([name, sales]) => ({ name, sales }))
         );
       });
-  }, []);
+  }, [supabase]);
+
 
   // Subscribe to new orders
   useEffect(() => {
@@ -80,7 +81,8 @@ export default function SalesBarChart() {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, []);
+  }, [supabase]);
+
 
   // Prepare chart
   const maxSales = Math.max(0, ...salesData.map((d) => d.sales));

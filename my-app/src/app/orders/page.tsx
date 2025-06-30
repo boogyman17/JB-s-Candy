@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 
@@ -12,7 +12,7 @@ interface Order {
 
 export default function OrdersPage() {
   const { user } = useAuth();
-  const supabase = getSupabaseClient();
+  const supabase = useMemo(() => getSupabaseClient(), []);
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
@@ -26,7 +26,8 @@ export default function OrdersPage() {
         if (error) console.error(error);
         else setOrders(data as Order[]);
       });
-  }, [user]);
+  }, [user, supabase]);
+
 
   if (!user) return <p className="p-8">Please log in to see your orders.</p>;
 

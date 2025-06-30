@@ -1,7 +1,13 @@
-// src/context/AuthContext.tsx
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 import { getSupabaseClient } from "@/lib/supabaseClient";
 import type { User } from "@supabase/supabase-js";
 
@@ -16,7 +22,7 @@ const AuthContext = createContext<AuthContextType>({
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-    const supabase = getSupabaseClient();
+  const supabase = useMemo(() => getSupabaseClient(), []);
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
